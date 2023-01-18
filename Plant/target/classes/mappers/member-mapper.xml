@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="memberMapper">
+  
+  	<resultMap type="member" id="memberResultSet">
+			<result column="M_NO" property="memberNo" />
+			<result column="MG_NO" property="MemberGradeNo" />
+			<result column="M_ID" property="memberId" />
+			<result column="M_PWD" property="memberPwd"/>
+			<result column="M_NAME" property="memberName" />
+			<result column="M_EMAIL" property="memberEmail" />
+			<result column="M_PHONE" property="memberPhone" />
+			<result column="M_ADDRESS" property="memberAddress"/>
+			<result column="M_GENDER" property="memberGender"/>
+			<result column="M_AGE" property="memberAge" />
+			<result column="M_CREATE_DATE" property="memberCreateDate" />
+			<result column="M_UPDATE_DATE" property="memberUpdateDate" />
+			<result column="M_STATUS" property="memberStatus" />
+	</resultMap>
+  
+  <!-- 아래는 로그인 -->
+	<select id="loginMember" resultMap="memberResultSet" parameterType="member">
+		 SELECT * FROM MEMBER
+		 WHERE M_ID=#{MemberId}
+		 AND M_PWD=#{MemberPwd}
+		 AND M_STATUS='Y'
+	</select>
+  
+ 
+	  <!-- 아래는  회원가입 -->
+	<insert id="enrollmMember" parameterType="member">
+		INSERT INTO MEMBER(
+							M_NO ,
+							MG_NO ,
+							M_ID ,
+							M_PWD ,
+							M_NAME ,						
+							M_PHONE ,
+							M_CREATE_DATE ,
+							M_UPDATE_DATE ,
+							M_STATUS  )
+					VALUES (
+							SEQ_MNO.NEXTVAL
+							,1
+							,#{memberId}							
+							,#{memberPwd}
+							,#{memberName}	
+							,#{memberPhone}
+							,SYSDATE
+							,SYSDATE			
+							,'Y')
+	</insert>
+ 
+ 	<select id="IdCheck"  parameterType="member" resultType="_int">
+		 SELECT COUNT(*) FROM MEMBER
+		 WHERE M_ID=#{MemberId}
+		 
+	</select>
+ 
+</mapper>

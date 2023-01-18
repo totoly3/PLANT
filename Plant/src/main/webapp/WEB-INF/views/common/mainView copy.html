@@ -1,0 +1,490 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>v
+<!DOCTYPE HTML>
+<html lang="ko">
+	<head>
+		<title>분당야탑동성당</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+				<meta name="publisher" content="(주)신비웹,신비웹,sinbiweb,sinbiweb.com,www.sinbiweb.com,webmaster@sinbiweb.com" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/slick.css" />
+		<link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
+		<link rel="stylesheet" type="text/css" href="../css/swiper.css">
+
+		<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="../js/ui.js"></script>
+		<script type="text/javascript" src="../js/slick.min.js"></script>
+		<script type="text/javascript" src="../js/swiper.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/board_reaction.css">
+		<script type="text/javascript" src="../../core/res/common.js"></script>
+		<script type="text/javascript" src="../../core/js/board.js"></script>
+		<script type="text/javascript" src="../../cheditor/cheditor.js"></script>
+		
+		
+		<style>
+					body, html {
+			    width: 100%;
+			    height: 100%;
+			}
+			body, html {
+			    width: 100%;
+			    height: 100%;
+			    color: #777777;
+			    font-family: "Noto Sans Korean";
+			    font-size: 12px;
+			}
+			body {
+			    -webkit-text-size-adjust: none;
+			}
+			body {
+			    overflow: auto;
+			}
+			* {
+			    margin: 0;
+			    padding: 0;
+			    -webkit-box-sizing: border-box;
+			    -moz-box-sizing: border-box;
+			    box-sizing: border-box;
+			}
+			
+			body {
+			    display: block;
+			    margin: 8px;
+			}
+		</style>
+		
+	</head>
+
+	<!-- 달력 -->
+    <div id=popCal  style='position:absolute; left:-400px; top:0px; width:0; height=0; z-index:1; VISIBILITY:hidden;'>
+    <iframe name='pop_frame_cal' src='' frameborder='0' scrolling='no' width='300' height='320'></iframe>
+    </div>
+
+	<!-- submit 사용시 -->
+	<div style='position:absolute'>
+	<iframe src='' name='ifr_ok'  width=0 height=0 frameborder=0 scrolling=no></iframe>
+	</div>
+
+	<body>
+		<div id="wrap">
+			<dl id="skip">
+				<dt class="hide">메뉴 바로가기</dt>
+				<dd><a href="#self">주메뉴 바로가기</a></dd>
+				<dd><a href="#self">컨텐츠 바로가기</a></dd>
+			</dl>
+			<header>
+				<div id="header">
+					<div class="in_Layer2 cf">
+						<h2 class="logo">
+							<a href="home.php?go=main">
+								<img class="h_off" src="../images/common/logo.png">
+								<img class="h_on" src="../images/common/logo_on.png">
+							</a>
+						</h2>
+						<div class="h_right  cf">			
+							<button type="button" class="hamburger hamburger--spin h_menu site_btn">
+								<span class="hamburger-box">
+									<span class="hamburger-inner"></span>
+								</span><!--hambuger-box--->
+							</button><!-- site_map"-->
+							<button type="button" class="hamburger hamburger--spin h_menu m_gnb_btn">
+								<span class="hamburger-box">
+									<span class="hamburger-inner"></span>
+								</span><!--hambuger-box--->
+							</button><!-- site_map"-->
+						</div><!--h_right-->
+						<a href="../marco/home.php" class="shop_btn" target="_blank"><span>마르코 장터</span></a>
+						<div class="gnb_area cf">
+							<ul class="gnb">
+														<li><a href="home.php?go=page0.0&mid=00">본당소개</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=page0.0&mid=00"><span>본당안내</span></a></li>
+																		<li><a href="home.php?go=page0.1&mid=01"><span>성직자/수도자</span></a></li>
+																		<li><a href="home.php?go=page0.2&mid=02"><span>로고/주보성인</span></a></li>
+																		<li><a href="home.php?go=page0.3&mid=03"><span>연혁</span></a></li>
+																		<li><a href="javascript:fun_book_view('228')"><span>본당설정25주년자료실</span></a></li>
+																		<li><a href="home.php?go=page0.5&mid=05"><span>관할지역</span></a></li>
+																		<li><a href="home.php?go=page0.6&mid=06"><span>홈피운영방침</span></a></li>
+																		<li><a href="home.php?go=page0.7&mid=07"><span>오시는길</span></a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page1.0&mid=10">신앙생활</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=page1.0&mid=10"><span>입교</span></a></li>
+																		<li><a href="home.php?go=page1.1&mid=11"><span>칠성사</span></a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/mi_pr/prayer/prayer.asp')"><span>가톨릭기도서</span></a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/bible/')"><span>가톨릭성경</span></a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/sa_ho/saint.asp')"><span>가톨릭성인</span></a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/sungga')"><span>가톨릭성가</span></a></li>
+																		<li><a href="javascript:go_url('http://school.catholic.or.kr/cte/roompass.asp')"><span>가톨릭인터넷교리</span></a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/mi_pr/missa/missa.asp')"><span>매일미사</span></a></li>
+																		<li><a href="javascript:go_url('http://cyberbible.casuwon.or.kr')"><span>사이버성경학교</span></a></li>
+																		<li><a href="home.php?go=page1.9&mid=19"><span>행복한 결혼</span></a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page2.0&mid=20">본당단체</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=page2.0&mid=20"><span>총회장</span></a></li>
+																		<li><a href="home.php?go=page2.1&mid=21"><span>상임위원회</span></a></li>
+																		<li><a href="home.php?go=page2.2&mid=22"><span>제분과위원회</span></a></li>
+																		<li><a href="home.php?go=page2.3&mid=23"><span>소공동체위원회</span></a></li>
+																		<li><a href="home.php?go=page2.4&mid=24"><span>평신도사도직단체협의회</span></a></li>
+																		<li><a href="home.php?go=page2.5&mid=25"><span>재정관리위원회</span></a></li>
+																		<li><a href="home.php?go=page2.6&mid=26"><span>청소년위원회</span></a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=pds.list&pds_type=2&mid=30">마르코카페</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=pds.list&pds_type=2&mid=30"><span>공지&행사</span></a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=12&mid=31"><span>본당소식</span></a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=3&mid=32"><span>자유게시판</span></a></li>
+																		<li><a href="home.php?go=schedule&mid=33"><span>월간행사일정표</span></a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=pds.list&pds_type=4&mid=40">갤러리</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=pds.list&pds_type=4&mid=40"><span>사진갤러리</span></a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=5&mid=41"><span>동영상갤러리</span></a></li>
+																		<li><a href="home.php?go=page4.2&mid=42"><span>유튜브자료실</span></a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page5.0&mid=50">청소년광장</a>
+									<ul class="depth_D">
+																		<li><a href="home.php?go=page5.0&mid=50"><span>초등부</span></a></li>
+																		<li><a href="home.php?go=page5.1&mid=51"><span>중고등부</span></a></li>
+																		<li><a href="home.php?go=page5.2&mid=52"><span>청년부</span></a></li>
+																	</ul><!--depth-->
+								</li>
+													</ul><!--gnb-->
+						</div><!--gnb_area-->
+					</div><!--in_Layer-->
+					<div class="sitemap h_map">
+						<div class="in_Layer">
+							<ul class="site_wrap flex-box cf">
+														<li><a href="home.php?go=page0.0&mid=00">본당소개</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=page0.0&mid=00">본당안내</a></li>
+																		<li><a href="home.php?go=page0.1&mid=01">성직자/수도자</a></li>
+																		<li><a href="home.php?go=page0.2&mid=02">로고/주보성인</a></li>
+																		<li><a href="home.php?go=page0.3&mid=03">연혁</a></li>
+																		<li><a href="javascript:fun_book_view('228')">본당설정25주년자료실</a></li>
+																		<li><a href="home.php?go=page0.5&mid=05">관할지역</a></li>
+																		<li><a href="home.php?go=page0.6&mid=06">홈피운영방침</a></li>
+																		<li><a href="home.php?go=page0.7&mid=07">오시는길</a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page1.0&mid=10">신앙생활</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=page1.0&mid=10">입교</a></li>
+																		<li><a href="home.php?go=page1.1&mid=11">칠성사</a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/mi_pr/prayer/prayer.asp')">가톨릭기도서</a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/bible/')">가톨릭성경</a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/sa_ho/saint.asp')">가톨릭성인</a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/sungga')">가톨릭성가</a></li>
+																		<li><a href="javascript:go_url('http://school.catholic.or.kr/cte/roompass.asp')">가톨릭인터넷교리</a></li>
+																		<li><a href="javascript:go_url('https://maria.catholic.or.kr/mi_pr/missa/missa.asp')">매일미사</a></li>
+																		<li><a href="javascript:go_url('http://cyberbible.casuwon.or.kr')">사이버성경학교</a></li>
+																		<li><a href="home.php?go=page1.9&mid=19">행복한 결혼</a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page2.0&mid=20">본당단체</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=page2.0&mid=20">총회장</a></li>
+																		<li><a href="home.php?go=page2.1&mid=21">상임위원회</a></li>
+																		<li><a href="home.php?go=page2.2&mid=22">제분과위원회</a></li>
+																		<li><a href="home.php?go=page2.3&mid=23">소공동체위원회</a></li>
+																		<li><a href="home.php?go=page2.4&mid=24">평신도사도직단체협의회</a></li>
+																		<li><a href="home.php?go=page2.5&mid=25">재정관리위원회</a></li>
+																		<li><a href="home.php?go=page2.6&mid=26">청소년위원회</a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=pds.list&pds_type=2&mid=30">마르코카페</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=pds.list&pds_type=2&mid=30">공지&행사</a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=12&mid=31">본당소식</a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=3&mid=32">자유게시판</a></li>
+																		<li><a href="home.php?go=schedule&mid=33">월간행사일정표</a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=pds.list&pds_type=4&mid=40">갤러리</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=pds.list&pds_type=4&mid=40">사진갤러리</a></li>
+																		<li><a href="home.php?go=pds.list&pds_type=5&mid=41">동영상갤러리</a></li>
+																		<li><a href="home.php?go=page4.2&mid=42">유튜브자료실</a></li>
+																	</ul><!--depth-->
+								</li>
+														<li><a href="home.php?go=page5.0&mid=50">청소년광장</a>
+									<ul class="site_depth">
+																		<li><a href="home.php?go=page5.0&mid=50">초등부</a></li>
+																		<li><a href="home.php?go=page5.1&mid=51">중고등부</a></li>
+																		<li><a href="home.php?go=page5.2&mid=52">청년부</a></li>
+																	</ul><!--depth-->
+								</li>
+													</ul><!--site_wrap-->
+						</div><!--in_Layer-->
+					</div><!--sitemap-->
+					<nav class="left_Box">
+						<div class="nav_in">
+							<div class="left_bot">
+								<div class="top_logo">
+									<a href="home.php?go=main"><img src="../images/common/logo_on.png"></a>
+								</div>
+								<ul class="m_gnb">
+																<li><a>본당소개</a>
+										<ul class="m_depth">
+																				<li><a href="home.php?go=page0.0&mid=00">본당안내</a></li>
+																		
+																			</ul><!--depth-->
+									</li>
+																<li><a>신앙생활</a>
+										<ul class="m_depth">
+																				<li><a href="home.php?go=page1.0&mid=10">입교</a></li>
+																
+																			</ul><!--depth-->
+									</li>
+																<li><a>본당단체</a>
+										<ul class="m_depth">
+																				<li><a href="home.php?go=page2.0&mid=20">총회장</a></li>
+																
+																			</ul><!--depth-->
+									</li>
+					
+														
+										
+								
+																<li><a>청소년광장</a>
+									
+							</div><!--left_bot-->
+							<a href="../marco/home.php" target="_blank" class="left_shop_btn"><span>마르코 장터</span></a>
+						</div><!--nav-in-->
+					</nav><!-- end : class : left_Box -->
+					<div class="wrap_bg"></div>
+				</div><!-- end : id : header -->
+			</header><!-- end : header -->
+			<div id="visual">
+				<div class="main_visual">
+					<button class="main_prev slick-arrow" style="display: block;">
+						<img src="../images/ico/main_prev.png">
+					</button>
+					<button class="main_next slick-arrow" style="display: block;">
+						<img src="../images/ico/main_next.png">
+					</button>
+					
+					<div class="slider-controls">
+						<div class="wrap-controls type-title"></div>
+					</div><!--slider-controls-->
+					<div class="scroll">
+						<p>SCROLL</p>
+						<div class="mouse">
+								<img src="../images/ico/scroll.png">
+						</div><!--mouse-->
+						<div class="arr">
+							<img src="../images/ico/scroll_arr.png">
+						</div><!--arr-->
+					</div><!--scroll-->
+				</div><!--main_visual-->
+			</div><!-- end : id : visual -->
+			<script>
+					var $slick_carousel = $('.mv_slider');
+						$slick_carousel.on('init', function(event, slick) {
+							$slick_carousel.find('.slick-current').removeClass('slick-active').addClass('reset-animation');
+							setTimeout( function() {
+								$slick_carousel.find('.slick-current').removeClass('reset-animation').addClass('slick-active');
+							}, 1);
+						});
+			</script>	
+
+			
+	</body>
+</html><style>
+/* 팝업 */
+.popup_bottom1 {  vertical-align:middle;  padding:0px 0px 0px 5px;  font-size:8pt;}
+.popup_bottom2 {  vertical-align:middle; text-align:right; padding:0px 10px 0px 0px; font-size:8pt;}
+</style>
+
+
+<script>
+    function cookieSet(dayNum,num,domain)
+    {
+        var oDate, expiresDate;
+        oDate = new Date();
+        oDate.setDate(oDate.getDate() + dayNum);
+        expiresDate = oDate.toGMTString();
+
+        document.cookie = 'cookie_flag_'+num+'=Y;  expires=' + expiresDate + '; path=/';
+
+		fun_lay_close(num);
+    }
+
+
+	// 새창
+    function url_new(url,num) {
+        window.open(url,'_blank','');
+		fun_lay_close(num);
+    }
+
+	// 부모창(현재창)
+    function url_parent(url,num) {
+        location.href = url;
+		fun_lay_close(num);
+    }
+</script>
+
+
+<script>
+/***************************************************************************************
+******************************** 팝업 드래그 레이어 *************************************
+****************************************************************************************/
+
+// 브라우저 버전별 체크
+var ns4=document.layers
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+// 넷스케이프 계열의 낮은 버전 브라우저를 위한....
+var dragswitch=0;
+var nsx;
+var nsy;
+var nstemp;
+
+function drag_dropns(name){
+	if (!ns4)
+		return;
+	temp=eval(name);
+	temp.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP);
+	temp.onmousedown=gons;
+	temp.onmousemove=dragns;
+	temp.onmouseup=stopns;
+}
+
+function gons(e){
+	temp.captureEvents(Event.MOUSEMOVE);
+	nsx=e.x;
+	nsy=e.y;
+}
+
+function dragns(e){
+	if (dragswitch==1){
+		temp.moveBy(e.x-nsx,e.y-nsy);
+		return false;
+	}
+}
+
+function stopns(){
+	temp.releaseEvents(Event.MOUSEMOVE);
+}
+// 넷스케이프 계열 낮은 버전 브라우저를 위한.... 끝
+
+// 크로스브라우저의 높은 버전을 위한 변수 정의
+var crossobj;
+var tempx;
+var tempy;
+var offsetx;
+var offsety;
+
+// 마우스 드래그에 의한 레이어 움직임 통제
+function drag_drop(e){
+ if (ie4&&dragapproved){
+  crossobj.style.left=tempx+event.clientX-offsetx;
+  // 움직인레이어의 왼쪽  = 원래위치 + 현재마우스위치 - 눌렀을당시 마우스위치  즉 원래레이어위치에서 마우스가 움직인만큼만 더해라
+  crossobj.style.top=tempy+event.clientY-offsety;
+  return false;
+ }
+ else if (ns6&&dragapproved){
+  crossobj.style.left=tempx+e.clientX-offsetx+"px";
+  crossobj.style.top=tempy+e.clientY-offsety+"px";
+  return false;
+ }
+}
+
+
+//크로스브라우징을 위해 각 변수가 정의
+function initializedrag(e,num){
+var popup_lay = "popup_lay_" + num;
+var dragbar = "dragbar_" + num;
+
+
+ // 크로스브라우징을 위한 오브젝트 선택 getElementById를 쓸것인지 all.아이디명을 쓸건인지
+ crossobj=ns6? document.getElementById(popup_lay) : eval("document.all."+popup_lay);
+
+ // 이벤트가 일어난 오브젝트 선택
+ var firedobj=ns6? e.target : event.srcElement;
+
+ // 브라우저별 최상위 오브젝트 이름과 DTD 정의에 따라 body, documentElement의 차이
+ var topelement=ns6? "html" : document.compatMode && document.compatMode!="BackCompat"? "documentElement" : "body";
+
+
+ // while 과 if 문은 어떤 효용이 있는지 잘 모르겠다. 팝업을 움직이는데는 꼭 필요하지는 않다.
+ // while문 전체와 if의 조건을 제거해도 효과에 이상은 없다
+ while (firedobj.tagName!=topelement.toUpperCase() && firedobj.id!=dragbar){
+  firedobj=ns6? firedobj.parentNode : firedobj.parentElement;
+ }
+
+ if (firedobj.id==dragbar){
+  offsetx=ie4? event.clientX : e.clientX;
+  offsety=ie4? event.clientY : e.clientY;
+  tempx=parseInt(crossobj.style.left);
+  tempy=parseInt(crossobj.style.top);
+
+  dragapproved=true;
+  document.onmousemove=drag_drop;
+ }
+}
+
+// 문서어디에서 마우스를 떼도 더이상 드레그 되지 않도록
+document.onmouseup=new Function("dragapproved=false");
+</script>
+
+
+
+			<div id='popup_lay_14'>
+				<div style='width:500px; height:370px; overflow:hidden; '> <img src='../../file/popup/14_a.jpg'></a><p>&nbsp;</p>
+
+				</div>
+				
+				<div style='width:500px; height:25px; background-color:#000000; cursor:move;' id='dragbar_14'  onMousedown='initializedrag(event,14)' onMouseover='dragswitch=1;if (ns4) drag_dropns(popup_lay_14)' onMouseout='dragswitch=0' title='레이어팝업창이동'>
+					<table width=100% height=25 border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td class=popup_bottom1>
+							<input type=checkbox name=popupCheck onclick="cookieSet(1,'14','mark.or.kr');">
+							<font color=#FFFFFF>오늘하루 창을 열지 않음</font></td>
+						<td class=popup_bottom2>
+							<a href=javascript:fun_lay_close('14')><font color=#FFFFFF>창닫기</font></font></a></td>
+					</tr>
+					</table>
+				</div>
+
+			</div>
+			<script>
+				fun_lay_popup('14','1200','100','500','370');
+			</script>
+			
+			<div id='popup_lay_31'>
+				<div style='width:500px; height:370px; overflow:hidden; '> <img src='../../file/popup/31_a.jpg'></a><p>&nbsp;</p>
+
+				</div>
+				
+				<div style='width:500px; height:25px; background-color:#000000; cursor:move;' id='dragbar_31'  onMousedown='initializedrag(event,31)' onMouseover='dragswitch=1;if (ns4) drag_dropns(popup_lay_31)' onMouseout='dragswitch=0' title='레이어팝업창이동'>
+					<table width=100% height=25 border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td class=popup_bottom1>
+							<input type=checkbox name=popupCheck onclick="cookieSet(1,'31','mark.or.kr');">
+							<font color=#FFFFFF>오늘하루 창을 열지 않음</font></td>
+						<td class=popup_bottom2>
+							<a href=javascript:fun_lay_close('31')><font color=#FFFFFF>창닫기</font></font></a></td>
+					</tr>
+					</table>
+				</div>
+
+			</div>
+			<script>
+				fun_lay_popup('31','100','100','500','370');
+			</script>
+			

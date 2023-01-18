@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.jy.plant.model.vo.Plant" alias="plant"/>
+		<typeAlias type="com.jy.member.model.vo.Member" alias="member"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="/mappers/plant-mapper.xml"/>
+		<mapper resource="/mappers/member-mapper.xml"/>
+	</mappers>
+	
+
+</configuration>

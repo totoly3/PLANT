@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  
+  <mapper namespace="plantMapper">
+	<resultMap type="Plant" id="plantResultSet">
+		<result column="P_NO" property="plantNo"/>
+		<result column="P_NAME" property="plantName"/>		
+		<result column="P_CONTENT" property="plantContent"/>
+		<result column="P_LIKE" property="plantLike"/>
+		<result column="P_ORIGIN_NAME" property="plantOriginName"/>
+		<result column="P_CHANGE_NAME" property="plantChangeName"/>
+		<result column="P_STATUS" property="plantStatus"/>
+	</resultMap>
+  	
+  
+  </mapper>
